@@ -17,7 +17,7 @@ public class EmployeeService {
         if(employeeList.isEmpty()) {
             Employee e1 = new Employee();
             e1.setId(1);
-            e1.setName("Preethi");
+            e1.setName("Vidhya");
 
             Role role = new Role();
             role.setDesignation("Chief Engineer");
@@ -27,7 +27,7 @@ public class EmployeeService {
 
             Employee e2 = new Employee();
             e2.setId(2);
-            e2.setName("Praveen");
+            e2.setName("Vandhana");
 
             Role role2 = new Role();
             role2.setDesignation("The CEO");
