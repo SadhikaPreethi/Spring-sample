@@ -1,9 +1,10 @@
 package com.preethi.sample;
 
 
-
 import com.preethi.sample.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,25 +20,26 @@ public class EmployeeDataController {
         List<Employee> employeeList = service.getAllMyEmployees();
         return employeeList;
     }
-    @RequestMapping(value = "/employee/data/add", method = RequestMethod.POST)
+
+    @org.springframework.web.bind.annotation.RequestMapping(value = "/employee/data/add", method = RequestMethod.POST)
     String addEmployee(@RequestBody Employee employee){
         int rowsAffected = service.addEmployee(employee);
         return "SUCCESSFULLY inserted " + rowsAffected + " record";
     }
 
-    @RequestMapping(value = "/employee/data/update", method = RequestMethod.PUT)
+    @org.springframework.web.bind.annotation.RequestMapping(value = "/employee/data/update", method = RequestMethod.PUT)
     String updateEmployee(@RequestBody Employee employee){
         int rowsAffected = service.updateEmployee(employee);
         return "SUCCESSFULLY updated " + rowsAffected + " record";
     }
 
-    @RequestMapping(value = "/employee/data/delete/{id}", method = RequestMethod.DELETE)
+    @org.springframework.web.bind.annotation.RequestMapping(value = "/employee/data/delete/{id}", method = RequestMethod.DELETE)
     String deleteEmployee(@PathVariable("id") int id) {
         int rowsAffected = service.deleteEmployee(id);
         return "SUCCESSFULLY deleted " + rowsAffected + " record";
     }
 
-    @RequestMapping(value = "/employee/data/count/{dept}", method = RequestMethod.GET)
+    @org.springframework.web.bind.annotation.RequestMapping(value = "/employee/data/count/{dept}", method = RequestMethod.GET)
     String countByDept(@PathVariable("dept") String dept) {
         int count = service.countRecordsByDept(dept);
         return "You have " + count + " Employees for the dept " + dept;
